@@ -27,6 +27,7 @@ def contacts(request):
 def flowers_card(request, pk):
     category_item = Category.objects.get(pk=pk)
     flowers_q = Flowers.objects.get(id=pk)
+
     context = {
         'object_list': flowers_q,
         'title': f'Карточка цветка - {category_item.name}'

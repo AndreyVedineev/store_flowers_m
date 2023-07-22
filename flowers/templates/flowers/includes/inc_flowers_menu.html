@@ -2,9 +2,9 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
      xmlns="http://www.w3.org/1999/html">
     <h5 class="my-0 mr-md-auto font-weight-normal">Store_flowers</h5>
-    <nav class="ms-5">
-        <a class="p-2 btn btn-outline-primary" href="{% url 'flowers:index' %}">Каталог</a>
-        <a class="p-2 btn btn-outline-primary" href="{% url 'flowers:contacts/' %}">Контакты</a>
+    <nav class="ms-4">
+        <a class="p-2 btn btn-btn btn-dark" href="{% url 'flowers:index' %}">Каталог</a>
+        <a class="p-2 btn btn-primary" href="{% url 'flowers:contacts/' %}">Контакты</a>
         <ul class="nav col-md-12 justify-content-end list-unstyled d-flex">
             <li class="align-items-md-end text-body-secondary">
                 {% current_time %}
