@@ -4,14 +4,14 @@
 {% block content %}
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Цветы</h1>
+    <h1 class="display-4">{{ title }}</h1>
     <p class="lead">Цветы - это то что скрасит Вам день! </p>
 </div>
 
 <div class="container">
     <div class="row text-center">
         {% for object in objects_list %}
-        <div class="col-3">
+        <div class="col-4">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">{{ object.name | title }}</h4>
@@ -26,11 +26,11 @@
                             <img class="img-fluid rounded mx-auto d-block" src="{{ object.Imag | my_media }}"
                             ></li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Подробнее</button>
+                    <a class="btn btn-primary" href="{% url 'flowers:flowers_card/' object.pk %}" role="button">Подробнее</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    {% endblock %}
+{% endblock %}
 

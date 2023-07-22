@@ -9,9 +9,9 @@ app_name = FlowersConfig.name
 
 urlpatterns = [
 
-    path('', index, name='index'),
+    path("", index, name='index'),
     path("contacts/", views.contacts, name="contacts/"),
-    path("flowers_card/", views.flowers_card, name="flowers_card/")
+    path("<int:pk>/flowers_card/", views.flowers_card, name="flowers_card/")
 
 
 ]

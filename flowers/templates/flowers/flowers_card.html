@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Карточка цветка</h1>
-</body>
-</html>
+{% extends 'flowers/base.html' %}
+{% load static %}
+{% load my_tags %}
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">{{ title }}</h1>
+    <p class="lead">Цветы - это то что скрасит Вам день! </p>
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.name | title }}</h4>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title pricing-card-title">{{ object.price }} руб.</h2>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{ object.category }}</li>
+                        <li>- {{ object.date_of_creation }}</li>
+                        <li>- {{ object.last_modified_date }}</li>
+                        <li>
+                            <img class="img-fluid rounded mx-auto d-block" src="{{ object.Imag | my_media }}">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
