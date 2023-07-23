@@ -29,7 +29,7 @@ def flowers_card(request, pk):
     flowers_q = Flowers.objects.get(id=pk)
 
     context = {
-        'object_list': flowers_q,
+        'object': flowers_q,
         'title': f'Карточка цветка - {category_item.name}'
 
     }
