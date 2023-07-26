@@ -1,0 +1,17 @@
+{% extends 'flowers/base.html' %}
+
+{% block content %}
+<div class="center">
+	<form method="post" class="card p-3 px-md-4 mb-3 ">
+		{% csrf_token %}
+		<h2>Удаление блога</h2>
+		<p>Вы действительно хотите удалить блог {{object.name}}?</p>
+		<p class="form-buttons">
+			<input type="submit" class="btn btn-primary" value="удалить">
+			<a href="{% url 'flowers:blog_fl_list/'%}" class="btn btn-outline">Отмена</a>
+		</p>
+	</form>
+</div>
+
+
+{% endblock %}

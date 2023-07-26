@@ -1,0 +1,46 @@
+{% extends 'flowers/base.html' %}
+{% load static %}
+{% load my_tags %}
+{% block content %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">{{ title }}</h1>
+
+    </div>
+    <div class="container-sm">
+        <div class="row text-center justify-content-md-center">
+            <div class="col-sm-6">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        {% if object.is_publication %}
+                            <h2 class="text-bg-warning my-0 font-weight-normal mb-2">{{ object.name | title }}</h2>
+                        {% else %}
+                            <h2 class="my-0 font-weight-normal mb-2">{{ object.name }}</h2>
+                            <h5>не активный</h5>
+                        {% endif %}
+                        {% if object.is_publication %}
+                            <a class="btn btn-warning mb-2" href="{% url 'flowers:toggle_activity/' object.pk %}">Деактивировать
+                                признак публикации</a>
+                        {% else %}
+                            <a class="btn btn-success" href="{% url 'flowers:toggle_activity/' object.pk %}">Активировать
+                                признак публикации</a>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="h5">{{ object.content }} </p>
+                        <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                            <li>  {{ object.date_of_creation }}</li>
+                            {% if object.number_of_views %}
+                                <li> {{ object.number_of_views }} - like.</li>
+                            {% else %}
+                                <li>Просмотров нет</li>
+                            {% endif %}
+                            <li>
+                                <img class="img-fluid rounded mx-auto d-block" src="{{ object.Imag | my_media }}">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

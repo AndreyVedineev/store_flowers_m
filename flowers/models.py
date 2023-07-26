@@ -43,7 +43,7 @@ class Blog_fl(models.Model):
     Imag = models.ImageField(upload_to='products/', verbose_name='Превью', **NULLABLE)
     date_of_creation = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     is_publication = models.BooleanField(default=True, verbose_name='Признак публикации')
-    number_of_views = models.IntegerField(verbose_name='Количество просмотров', **NULLABLE)
+    number_of_views = models.IntegerField(default=0, verbose_name='Количество просмотров', **NULLABLE)
 
     def __str__(self):
         # Строковое отображение объекта

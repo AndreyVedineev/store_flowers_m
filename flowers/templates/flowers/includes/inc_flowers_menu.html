@@ -5,9 +5,9 @@
     <nav class="ms-4">
         <a class="p-2 btn btn-btn btn-dark" href="{% url 'flowers:flowers_list' %}">Каталог</a>
         <a class="p-2 btn btn-btn btn-success" href="{% url 'flowers:blog_fl_form/' %}">Cоздать запись в блоге</a>
-        <a class="p-2 btn btn-btn btn-success" href="{% url 'flowers:blog_fl_list/' %}">Просмотр блога</a>
-        <a class="p-2 btn btn-primary" href="{% url 'flowers:contacts/' %}">Контакты</a>
-        {% current_time %}
+        <a class="p-2 btn btn-btn btn-success" href="{% url 'flowers:blog_fl_list/' %}">Просмотр блогов</a>
+        <a class="p-2 btn btn-success" href="{% url 'flowers:contacts/' %}">Контакты</a>
+        <p class="" >{% current_time %}</p>
         <ul class="nav col-md-12 justify-content-end list-unstyled d-flex">
             <li class="align-items-md-end text-body-secondary">
 
