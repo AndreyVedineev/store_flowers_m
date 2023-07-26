@@ -1,0 +1,199 @@
+[
+  {
+    "model": "flowers.category",
+    "pk": 1,
+    "fields": {
+      "name": "Пионовые (Paulowniaceae) ",
+      "description": "Многолетнее растение с несколькими стеблями (стволами) высотой до 1 м. Листья непарно перисто раздельные или тройчатые. Одиночные крупные цветы простые, махровые или полуметровые. Имеют цвет белый, кремовый, оттенки розового, малиновый, бордовый."
+    }
+  },
+  {
+    "model": "flowers.category",
+    "pk": 2,
+    "fields": {
+      "name": "Розовые (Aerospace)",
+      "description": "Растение имеет форму куста. Высота от 30 до 200 см. Стебли одеревесневающие с шипами. Цветы простые, полу махровые илимахровые всех цветов и оттенков, кроме черного и синего."
+    }
+  },
+  {
+    "model": "flowers.category",
+    "pk": 3,
+    "fields": {
+      "name": "Бобовые (Fabrice)",
+      "description": "Вечнозеленый кустарник высотой 60-80 см, иногда до 150 см. На небольших веточках куста располагаются мелкие листья, а соцветия образуют метелки из цветочков, имеющих форму шариков ярко желтого цвета."
+    }
+  },
+  {
+    "model": "flowers.category",
+    "pk": 4,
+    "fields": {
+      "name": "Лилейные (Celiac)",
+      "description": "Растение имеет высоту от 60 до 80 см, широкие листья, крупные цветки бокаловидной формы. Существует множество сортов тюльпанов. Окраска также разнообразна: все оттенки красного, желтого, розового, лилового."
+    }
+  },
+  {
+    "model": "flowers.flowers",
+    "pk": 1,
+    "fields": {
+      "name": "Пион",
+      "Imag": "products/пион.png",
+      "category": 1,
+      "price": "200.50",
+      "date_of_creation": "2023-07-21",
+      "last_modified_date": "2023-07-21"
+    }
+  },
+  {
+    "model": "flowers.flowers",
+    "pk": 2,
+    "fields": {
+      "name": "Роза",
+      "Imag": "products/роза.png",
+      "category": 2,
+      "price": "300.00",
+      "date_of_creation": "2023-07-21",
+      "last_modified_date": "2023-07-21"
+    }
+  },
+  {
+    "model": "flowers.flowers",
+    "pk": 3,
+    "fields": {
+      "name": "Мимоза",
+      "Imag": "products/мимоза.png",
+      "category": 3,
+      "price": "50.00",
+      "date_of_creation": "2023-07-21",
+      "last_modified_date": "2023-07-21"
+    }
+  },
+  {
+    "model": "flowers.flowers",
+    "pk": 4,
+    "fields": {
+      "name": "Тюльпан",
+      "Imag": "products/тюльпан.png",
+      "category": 4,
+      "price": "100.00",
+      "date_of_creation": "2023-07-21",
+      "last_modified_date": "2023-07-21"
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 2,
+    "fields": {
+      "name": "store_flowers",
+      "slug": "",
+      "content": "Где можно купить такой букет?",
+      "Imag": "products/2022-11-02_09-49-32.PNG",
+      "date_of_creation": "2023-07-25",
+      "is_publication": false,
+      "number_of_views": 8
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 5,
+    "fields": {
+      "name": "Что-то о цветах",
+      "slug": "",
+      "content": "Многие лета.....",
+      "Imag": "products/2022-11-02_09-55-11.PNG",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 2
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 6,
+    "fields": {
+      "name": "Мы были в гостях у магазина.",
+      "slug": "",
+      "content": "Очень удивил хозяин мазина.",
+      "Imag": "products/2022-11-02_09-47-17.PNG",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 6
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 7,
+    "fields": {
+      "name": "Желтые цветы: лесные цветы с желтым оттенком, дикие желтые розы.",
+      "slug": "zheltyie-tsvetyi-lesnyie-tsvetyi-s-zheltyim-ottenkom-dikie-zheltyie-rozyi",
+      "content": "Желтый тон часто появляется в лесу. Желтые цветы, вероятно, относятся к самой видовой группе, когда дело доходит до цветных цветов, которые можно найти в лесу. Во время прогулки по лесу стоит посмотреть на деревья, под папоротниками и другими уголками леса, потому что здесь, возможно, прячутся некоторые из этих экземпляров.",
+      "Imag": "products/желтыи.png",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 1
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 8,
+    "fields": {
+      "name": "Многолетние красивые цветы белого цвета",
+      "slug": "mnogoletnie-krasivyie-tsvetyi-belogo-tsveta",
+      "content": "Почвопокровные растения, или растения, которые разрастаются и покрывают землю, часто используются для борьбы с эрозией на склонах или как простая в уходе замена дерновой траве.",
+      "Imag": "products/роза_розовая.jpeg",
+      "date_of_creation": "2023-07-26",
+      "is_publication": false,
+      "number_of_views": 0
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 9,
+    "fields": {
+      "name": "Цветы пента - шикарные большие живые букеты.",
+      "slug": "tsvetyi-penta-shikarnyie-bolshie-zhivyie-buketyi",
+      "content": "Цветы пента (Pentas lanceolata) известны под разными названиями, включая звездчатые гроздья, пентас и египетские звездчатые цветы.",
+      "Imag": "products/ribbon.jpg",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 0
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 10,
+    "fields": {
+      "name": "Желтые цветы: лесные цветы с желтым оттенком, дикие желтые розы.",
+      "slug": "",
+      "content": "Желтый тон часто появляется в лесу. Желтые цветы, вероятно, относятся к самой видовой группе, когда дело доходит до цветных цветов, которые можно найти в лесу. Во время прогулки по лесу стоит посмотреть на деревья, под папоротниками и другими уголками леса, потому что здесь, возможно, прячутся некоторые из этих экземпляров.",
+      "Imag": "",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 0
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 11,
+    "fields": {
+      "name": "Многолетние красивые цветы белого цвета",
+      "slug": "",
+      "content": "Почвопокровные растения, или растения, которые разрастаются и покрывают землю, часто используются для борьбы с эрозией на склонах или как простая в уходе замена дерновой траве.",
+      "Imag": "",
+      "date_of_creation": "2023-07-26",
+      "is_publication": false,
+      "number_of_views": 0
+    }
+  },
+  {
+    "model": "flowers.blog_fl",
+    "pk": 12,
+    "fields": {
+      "name": "Цветы пента - шикарные большие живые букеты.",
+      "slug": "",
+      "content": "Цветы пента (Pentas lanceolata) известны под разными названиями, включая звездчатые гроздья, пентас и египетские звездчатые цветы.",
+      "Imag": "",
+      "date_of_creation": "2023-07-26",
+      "is_publication": true,
+      "number_of_views": 0
+    }
+  }
+]
