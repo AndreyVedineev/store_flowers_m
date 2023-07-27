@@ -35,4 +35,4 @@ class Command(BaseCommand):
         for item in blog_list:
             blog_for_create.append(Blog_fl(**item))
 
-        Blog_fl.objects.bulk_create(blog_for_create)
+            Blog_fl.objects.bulk_create(blog_for_create)

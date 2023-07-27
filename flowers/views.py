@@ -49,8 +49,9 @@ def contacts(request):
 
 
 def flowers_card(request, pk):
-    category_item = Category.objects.get(pk=pk)
+    # category_item = Category.objects.get(pk=pk)
     flowers_q = Flowers.objects.get(id=pk)
+    category_item = Category.objects.get(pk=flowers_q.pk)
 
     context = {
         'object': flowers_q,
