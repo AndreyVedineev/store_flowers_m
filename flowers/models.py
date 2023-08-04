@@ -57,3 +57,16 @@ class Blog_fl(models.Model):
         ordering = ['number_of_views']
 
 
+class Version(models.Model):
+    product = models.ForeignKey(Flowers, on_delete=models.CASCADE, verbose_name='Продукт')
+    version_number = models.IntegerField(default=0, verbose_name='Номер версии продукта')
+    version_name = models.CharField(max_length=150, verbose_name='Имя версии продукта')
+    indicator = models.BooleanField(default=True, verbose_name='Признак активности продукта')
+
+    def __str__(self):
+        return f'{self.product} {self.version_number} {self.version_name}, {self.indicator}'
+
+    class Meta:
+        verbose_name = 'Продукт'  # Настройка для наименования одного объекта
+        verbose_name_plural = 'Продукты'  # Настройка для наименования набора объектов
+        ordering = ['version_name']

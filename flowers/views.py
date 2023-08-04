@@ -3,6 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 
+from flowers.forms import FlowersForm
 from flowers.models import Flowers, Category, Blog_fl
 
 
@@ -18,6 +19,16 @@ class IndexListView(ListView):
         return context
 
 
+class FlowersCreateView(CreateView):
+    model = Flowers
+    form_class = FlowersForm
+    success_url = reverse_lazy('flowers:flowers_list')
+
+
+class FlowersUpdateView(UpdateView):
+    pass
+
+
 def contacts(request):
     context = {
         'title': 'Контакты'
@@ -28,24 +39,6 @@ def contacts(request):
 
         # print(request.POST)
     return render(request, 'flowers/contacts.html', context)
-
-
-# class Flowers_cardListView(ListView):
-#     model = Flowers
-#
-#     def get_queryset(self):
-#         queryset = super().get_queryset()
-#         queryset = queryset.filter(category_id=self.kwargs.get('pk'))
-#         return queryset
-#
-#     def get_context_data(self, *args, **kwargs):
-#
-#         context_date = super().get_context_data(*args, **kwargs)
-#         category_item = Category.objects.get(pk=self.kwargs.get('pk'))
-#         context_date['object'] = Flowers.objects.get(id=pk)
-#         context_date['title'] = f'Карточка цветка - {category_item.name}'
-#         }
-#         return context_date
 
 
 def flowers_card(request, pk):
