@@ -24,3 +24,20 @@ class VersionForm(forms.ModelForm):
     class Meta:
         model = Version
         fields = '__all__'
+
+    def clean(self):
+        # super().clean()
+        count = 0
+        cleaned_date = self.cleaned_data
+        cleaned_data = self.cleaned_data['indicator']
+        if cleaned_data is True:
+
+            count += 1
+
+        print(count)
+
+        if count > 1:
+            raise forms.ValidationError(
+                'Может быть только одна активная версия продукта.')
+
+        return cleaned_date
