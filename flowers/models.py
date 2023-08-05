@@ -69,4 +69,4 @@ class Version(models.Model):
     class Meta:
         verbose_name = 'Продукт'  # Настройка для наименования одного объекта
         verbose_name_plural = 'Продукты'  # Настройка для наименования набора объектов
-        ordering = ['version_name']
+

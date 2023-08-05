@@ -2,7 +2,7 @@ from django.urls import path
 
 from flowers import views
 from flowers.apps import FlowersConfig
-from flowers.views import contacts, IndexListView, flowers_card, Blog_flCreateView, Blog_flListView, Blog_flDetailView, \
+from flowers.views import contacts, IndexListView, Blog_flCreateView, Blog_flListView, Blog_flDetailView, \
     Blog_flUpdateView, Blod_flDeleteView, toggle_activity, FlowersCreateView, FlowersUpdateView
 
 app_name = FlowersConfig.name
@@ -19,7 +19,7 @@ urlpatterns = [
     path("update/<int:pk>/flowers/", FlowersUpdateView.as_view(), name='flowers_update/'),
 
 
-    path("<int:pk>/flowers_card/", flowers_card, name="flowers_card/"),
+    # path("<int:pk>/flowers_card/", flowers_card, name="flowers_card/"),
 
 
 

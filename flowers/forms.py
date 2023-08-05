@@ -1,6 +1,6 @@
 from django import forms
 
-from flowers.models import Flowers
+from flowers.models import Flowers, Version
 
 
 class FlowersForm(forms.ModelForm):
@@ -18,3 +18,9 @@ class FlowersForm(forms.ModelForm):
             raise forms.ValidationError(f'Вы используете запрещенные слова! {bad}')
 
         return cleaned_data
+
+
+class VersionForm(forms.ModelForm):
+    class Meta:
+        model = Version
+        fields = '__all__'

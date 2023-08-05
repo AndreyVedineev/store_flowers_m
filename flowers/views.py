@@ -1,10 +1,11 @@
+from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 
-from flowers.forms import FlowersForm
-from flowers.models import Flowers, Category, Blog_fl
+from flowers.forms import FlowersForm, VersionForm
+from flowers.models import Flowers, Category, Blog_fl, Version
 
 
 class IndexListView(ListView):
@@ -14,9 +15,10 @@ class IndexListView(ListView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['objects_list'] = Flowers.objects.all()
-        return context
+        context_data = super().get_context_data()
+        context_data['objects_list'] = Flowers.objects.all()
+
+        return context_data
 
 
 class FlowersCreateView(CreateView):
@@ -24,9 +26,49 @@ class FlowersCreateView(CreateView):
     form_class = FlowersForm
     success_url = reverse_lazy('flowers:flowers_list')
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        VersionFormset = inlineformset_factory(Flowers, Version, form=VersionForm, extra=1)
+        if self.request.method == "POST":
+            context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
+        else:
+            context_data['formset'] = VersionFormset(instance=self.object)
+        return context_data
+
+    def form_valid(self, form):
+        formset = self.get_context_data()['formset']
+        self.object = form.save()
+        if formset.is_valid():
+            formset.instance = self.object
+            formset.save()
+
+        return super().form_valid(form)
+
 
 class FlowersUpdateView(UpdateView):
-    pass
+    model = Flowers
+    form_class = FlowersForm
+    success_url = reverse_lazy('flowers:flowers_list')
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        VersionFormset = inlineformset_factory(Flowers, Version, form=VersionForm, extra=1)
+        if self.request.method == "POST":
+            context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
+        else:
+            context_data['formset'] = VersionFormset(instance=self.object)
+        return context_data
+
+    def form_valid(self, form):
+        formset = self.get_context_data()['formset']
+        self.object = form.save()
+        if formset.is_valid():
+            formset.instance = self.object
+            formset.save()
+
+        return super().form_valid(form)
 
 
 def contacts(request):
@@ -41,17 +83,17 @@ def contacts(request):
     return render(request, 'flowers/contacts.html', context)
 
 
-def flowers_card(request, pk):
-    # category_item = Category.objects.get(pk=pk)
-    flowers_q = Flowers.objects.get(id=pk)
-    category_item = Category.objects.get(pk=flowers_q.pk)
-
-    context = {
-        'object': flowers_q,
-        'title': f'Карточка цветка - {category_item.name}'
-
-    }
-    return render(request, 'flowers/flowers_card.html', context)
+# def flowers_card(request, pk):
+#     # category_item = Category.objects.get(pk=pk)
+#     flowers_q = Flowers.objects.get(id=pk)
+#     category_item = Category.objects.get(pk=flowers_q.pk)
+#
+#     context = {
+#         'object': flowers_q,
+#         'title': f'Карточка цветка - {category_item.name}'
+#
+#     }
+#     return render(request, 'flowers/flowers_card.html', context)
 
 
 class Blog_flCreateView(CreateView):

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from flowers.models import Category, Flowers, Blog_fl
+from flowers.models import Category, Flowers, Blog_fl, Version
 
 
 @admin.register(Category)
@@ -15,6 +15,12 @@ class FlowersAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'price', 'date_of_creation', 'last_modified_date', 'Imag')
     list_filter = ('category',)
     search_fields = ('name',)
+
+
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('product', 'version_number', 'version_name', 'indicator')
+    list_filter = ('product', )
 
 
 @admin.register(Blog_fl)
