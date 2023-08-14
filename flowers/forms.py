@@ -9,6 +9,11 @@ class FlowersForm(forms.ModelForm):
         # fields = '__all__'
         exclude = ('date_of_creation', 'last_modified_date',)
 
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'form-control'
+
     def clean_name(self):
         bad = {'казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция',
                'радар'}
@@ -24,6 +29,11 @@ class VersionForm(forms.ModelForm):
     class Meta:
         model = Version
         fields = '__all__'
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'form-control'
 
     def clean_indicator(self):
         cleaned_data = self.cleaned_data['indicator']
