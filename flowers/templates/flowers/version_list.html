@@ -10,20 +10,22 @@
 <div class="container">
     <div class="row text-center">
         {% for object in objects_list %}
-        <div class="col-4">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    Карточка товара
-                </div>
-                <div class="card-body">
-                    <h5 class="my-0 font-weight-normal">{{ object.product }}</h5>
-                    <h5>Номер версии {{ object.version_number }}</h5>
-                    <h5>Имя версии {{ object.version_name }}</h5>
+            {% if object.indicator is True %}
+            <div class="col-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        Карточка товара
+                    </div>
+                    <div class="card-body">
+                        <h5 class="my-0 font-weight-normal">{{ object.product }}</h5>
+                        <hr>
+                        <h5>Номер версии {{ object.version_number }}</h5>
+                        <h5>Имя версии {{ object.version_name }}</h5>
+                    </div>
                 </div>
             </div>
-        </div>
+            {% endif %}
         {% endfor %}
     </div>
+</div>
     {% endblock %}
-
-    >
