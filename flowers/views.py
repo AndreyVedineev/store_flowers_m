@@ -12,6 +12,7 @@ class IndexListView(ListView):
     model = Flowers
     extra_context = {
         'title': 'Цветы - Django магазин'
+
     }
 
     def get_context_data(self, **kwargs):
@@ -19,6 +20,18 @@ class IndexListView(ListView):
         context_data['objects_list'] = Flowers.objects.all()
 
         return context_data
+
+
+class ProductListView(ListView):
+    model = Version
+    extra_context = {'title': 'Продукты в цветочном магазине'}
+
+    def get_context_data(self, **kwargs):
+       context_data = super().get_context_data()
+       context_data['objects_list'] = Version.objects.all()
+       print(context_data)
+
+       return context_data
 
 
 class FlowersCreateView(CreateView):
@@ -31,9 +44,9 @@ class FlowersCreateView(CreateView):
 
         VersionFormset = inlineformset_factory(Flowers, Version, form=VersionForm, extra=1)
         if self.request.method == "POST":
-            context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
+            context_data['formset'] = VersionFormset(self.request.POST)
         else:
-            context_data['formset'] = VersionFormset(instance=self.object)
+            context_data['formset'] = VersionFormset()
         return context_data
 
     def form_valid(self, form):

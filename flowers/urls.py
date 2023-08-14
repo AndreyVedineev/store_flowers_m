@@ -3,7 +3,7 @@ from django.urls import path
 from flowers import views
 from flowers.apps import FlowersConfig
 from flowers.views import contacts, IndexListView, Blog_flCreateView, Blog_flListView, Blog_flDetailView, \
-    Blog_flUpdateView, Blod_flDeleteView, toggle_activity, FlowersCreateView, FlowersUpdateView
+    Blog_flUpdateView, Blod_flDeleteView, toggle_activity, FlowersCreateView, FlowersUpdateView, ProductListView
 
 app_name = FlowersConfig.name
 
@@ -15,6 +15,7 @@ class BBlog_flUpdateView:
 urlpatterns = [
 
     path("", IndexListView.as_view(), name='flowers_list'),
+    path("version/flowers/", ProductListView.as_view(), name='version_list/'),
     path("create/flowers/", FlowersCreateView.as_view(), name='flowers_create/'),
     path("update/<int:pk>/flowers/", FlowersUpdateView.as_view(), name='flowers_update/'),
 

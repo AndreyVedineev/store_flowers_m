@@ -1,0 +1,29 @@
+{% extends 'flowers/base.html' %}
+{% load static %}
+{% load my_tags %}
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">{{ title }}</h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        {% for object in objects_list %}
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    Карточка товара
+                </div>
+                <div class="card-body">
+                    <h5 class="my-0 font-weight-normal">{{ object.product }}</h5>
+                    <h5>Номер версии {{ object.version_number }}</h5>
+                    <h5>Имя версии {{ object.version_name }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+
+    >

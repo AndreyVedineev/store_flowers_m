@@ -25,19 +25,13 @@ class VersionForm(forms.ModelForm):
         model = Version
         fields = '__all__'
 
-    def clean(self):
-        # super().clean()
-        count = 0
-        cleaned_date = self.cleaned_data
+    def clean_indicator(self):
         cleaned_data = self.cleaned_data['indicator']
-        if cleaned_data is True:
+        # print(cleaned_data)
+        # # print(self.instance.product.version_set.filter(indicator=True).exclude(id=self.instance.id).exists())
 
-            count += 1
+        if cleaned_data and self.instance.product.version_set.filter(indicator=True).exclude(
+                id=self.instance.id).exists():
+            raise forms.ValidationError(f'Может существовать только одна активная версия.')
 
-        print(count)
-
-        if count > 1:
-            raise forms.ValidationError(
-                'Может быть только одна активная версия продукта.')
-
-        return cleaned_date
+        return cleaned_data
