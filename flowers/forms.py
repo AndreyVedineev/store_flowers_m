@@ -7,7 +7,6 @@ class StyleFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            print(field_name)
             field.widget.attrs['class'] = 'form-control'
 
 
@@ -33,11 +32,10 @@ class VersionForm(StyleFormMixin, forms.ModelForm):
         model = Version
         fields = '__all__'
 
-
     def clean_indicator(self):
         cleaned_data = self.cleaned_data['indicator']
         # print(cleaned_data)
-        # # print(self.instance.product.version_set.filter(indicator=True).exclude(id=self.instance.id).exists())
+        # print(self.instance.product.version_set.filter(indicator=True).exclude(id=self.instance.id).exists())
 
         if cleaned_data and self.instance.product.version_set.filter(indicator=True).exclude(
                 id=self.instance.id).exists():

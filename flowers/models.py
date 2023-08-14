@@ -63,6 +63,10 @@ class Version(models.Model):
     version_name = models.CharField(max_length=150, verbose_name='Имя версии продукта')
     indicator = models.BooleanField(default=False, verbose_name='Признак активности продукта')
 
+    @property
+    def active_version(self):
+        return self.version_set.filter(indicator=True).last()
+
     def __str__(self):
         return f'{self.product} {self.version_number} {self.version_name}, {self.indicator}'
 
